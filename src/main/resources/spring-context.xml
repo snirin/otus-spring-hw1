@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="taskService" class="ru.otus.spring.hw1.service.TaskServiceImpl">
+    </bean>
+
+    <bean id="questionService" class="ru.otus.spring.hw1.service.QuestionServiceImpl">
+    </bean>
+
+    <bean id="evaluationService" class="ru.otus.spring.hw1.service.EvaluationServiceImpl">
+    </bean>
+
+    <bean id="printService" class="ru.otus.spring.hw1.service.PrintServiceImpl">
+    </bean>
+
+    <bean id="examService" class="ru.otus.spring.hw1.service.ExamServiceImpl">
+        <constructor-arg name="questionService" ref="questionService"/>
+    </bean>
+
+    <bean id="classroomService" class="ru.otus.spring.hw1.service.ClassroomServiceImpl">
+        <constructor-arg name="taskService" ref="taskService"/>
+        <constructor-arg name="examService" ref="examService"/>
+        <constructor-arg name="evaluationService" ref="evaluationService"/>
+        <constructor-arg name="printService" ref="printService"/>
+    </bean>
+
+</beans>
