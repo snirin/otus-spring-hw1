@@ -23,7 +23,9 @@ public class TaskServiceImpl implements TaskService {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] row = line.split(SEPARATOR);
-                questions.put(row[0], row[1]);
+                if (row.length == 2) {
+                    questions.put(row[0], row[1]);
+                }
             }
 
         } catch (IOException e) {

@@ -7,24 +7,32 @@ import org.junit.Test;
 import ru.otus.spring.hw1.entity.Exam;
 import ru.otus.spring.hw1.entity.Student;
 import ru.otus.spring.hw1.entity.Task;
-import ru.otus.spring.hw1.service.stub.QuestionServiceStub;
 
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
-import static ru.otus.spring.hw1.service.stub.QuestionServiceStub.ANSWER;
-import static ru.otus.spring.hw1.service.stub.QuestionServiceStub.NAME;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+import static ru.otus.spring.hw1.service.ExamServiceImpl.ENTER_YOUR_NAME;
 
 public class ExamServiceImplTest {
     private static final String Q_1 = "q1";
     private static final String Q_2 = "q2";
+    private static final String NAME = "John";
+    private static final String ANSWER = "answer";
+
     private static Set<String> QUESTIONS = ImmutableSet.of(Q_1, Q_2);
 
     private ExamService examService;
 
     @Before
     public void setUp() throws Exception {
-        examService = new ExamServiceImpl(new QuestionServiceStub());
+        QuestionService questionService = mock(QuestionService.class);
+        when(questionService.ask(any())).thenReturn(ANSWER);
+        when(questionService.ask(ENTER_YOUR_NAME)).thenReturn(NAME);
+
+        examService = new ExamServiceImpl(questionService);
     }
 
     @Test
