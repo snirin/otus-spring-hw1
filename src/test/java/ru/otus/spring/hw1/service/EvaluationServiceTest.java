@@ -12,7 +12,7 @@ import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 
-public class EvaluationServiceImplTest {
+public class EvaluationServiceTest {
     private static Map<String, String> QUESTIONS = ImmutableMap.of(
             "q1", "a1",
             "q2", "a2"
@@ -23,7 +23,7 @@ public class EvaluationServiceImplTest {
     @Before
     public void setUp() throws Exception
     {
-        evaluationService = new EvaluationServiceImpl();
+        evaluationService = new EvaluationService();
     }
 
     @Test

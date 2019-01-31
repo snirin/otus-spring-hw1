@@ -14,9 +14,9 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import static ru.otus.spring.hw1.service.ExamServiceImpl.ENTER_YOUR_NAME;
+import static ru.otus.spring.hw1.service.ExamService.ENTER_YOUR_NAME;
 
-public class ExamServiceImplTest {
+public class ExamServiceTest {
     private static final String Q_1 = "q1";
     private static final String Q_2 = "q2";
     private static final String NAME = "John";
@@ -32,7 +32,7 @@ public class ExamServiceImplTest {
         when(questionService.ask(any())).thenReturn(ANSWER);
         when(questionService.ask(ENTER_YOUR_NAME)).thenReturn(NAME);
 
-        examService = new ExamServiceImpl(questionService);
+        examService = new ExamService(questionService);
     }
 
     @Test

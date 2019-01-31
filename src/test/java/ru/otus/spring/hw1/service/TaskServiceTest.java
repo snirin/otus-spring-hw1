@@ -8,7 +8,7 @@ import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 
-public class TaskServiceImplTest {
+public class TaskServiceTest {
     private static Map<String, String> QUESTIONS = ImmutableMap.of(
             "q1", "a1",
             "q2", "a2"
@@ -18,7 +18,7 @@ public class TaskServiceImplTest {
 
     @Before
     public void setUp() throws Exception {
-        taskService = new TaskServiceImpl();
+        taskService = new TaskService();
     }
 
     @Test
