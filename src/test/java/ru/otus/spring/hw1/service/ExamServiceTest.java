@@ -18,7 +18,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class ExamServiceTest {
-    private static final Locale LOCALE = new Locale("ru", "RU");
     private static final String Q_1 = "q1";
     private static final String Q_2 = "q2";
     private static final String NAME = "John";
@@ -31,7 +30,7 @@ public class ExamServiceTest {
 
     @Before
     public void setUp() throws Exception {
-        QuestionService questionService = mock(QuestionService.class);
+        QuestionServiceImpl questionService = mock(QuestionServiceImpl.class);
         when(questionService.ask(any())).thenReturn(ANSWER);
         when(questionService.ask(ENTER_YOUR_NAME_LOCAL)).thenReturn(NAME);
 
@@ -39,7 +38,8 @@ public class ExamServiceTest {
         messageSource.setBasename("/i18n/bundle");
         messageSource.setDefaultEncoding("UTF-8");
 
-        examService = new ExamService(questionService, messageSource, LOCALE);
+        examService = new ExamServiceImpl(questionService,
+                new LocalizationServiceImpl(messageSource, Locale.forLanguageTag("ru-RU")));
     }
 
     @Test

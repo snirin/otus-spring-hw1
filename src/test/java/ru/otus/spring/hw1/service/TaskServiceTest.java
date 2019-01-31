@@ -18,7 +18,7 @@ public class TaskServiceTest {
 
     @Before
     public void setUp() throws Exception {
-        taskService = new TaskService();
+        taskService = new TaskServiceImpl();
     }
 
     @Test

@@ -22,7 +22,7 @@ public class EvaluationServiceTest {
 
     @Before
     public void setUp() throws Exception {
-        evaluationService = new EvaluationService();
+        evaluationService = new EvaluationServiceImpl();
     }
 
     @Test
