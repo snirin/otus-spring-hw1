@@ -21,8 +21,7 @@ public class EvaluationServiceTest {
     private EvaluationService evaluationService;
 
     @Before
-    public void setUp() throws Exception
-    {
+    public void setUp() throws Exception {
         evaluationService = new EvaluationService();
     }
 

@@ -7,16 +7,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.LinkedHashMap;
-import java.util.Map;
 
 @Service
 class TaskService {
 
     private static final String SEPARATOR = ",";
 
-    Map<String, String> readTasks(String filename) {
+    LinkedHashMap<String, String> readTasks(String filename) {
 
-        Map<String, String> questions = new LinkedHashMap<>();
+        LinkedHashMap<String, String> questions = new LinkedHashMap<>();
 
         ClassLoader classLoader = getClass().getClassLoader();
         InputStream resourceAsStream = classLoader.getResourceAsStream(filename);
