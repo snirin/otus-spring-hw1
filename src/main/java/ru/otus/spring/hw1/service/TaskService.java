@@ -1,8 +1,7 @@
 package ru.otus.spring.hw1.service;
 
-import java.util.Map;
+import java.util.LinkedHashMap;
 
 public interface TaskService {
-
-    Map<String, String> readTasks(String filename);
+    LinkedHashMap<String, String> readTasks(String filename);
 }

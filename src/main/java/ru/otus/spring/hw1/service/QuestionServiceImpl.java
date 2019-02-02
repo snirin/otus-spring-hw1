@@ -1,10 +1,13 @@
 package ru.otus.spring.hw1.service;
 
+import org.springframework.stereotype.Service;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class QuestionServiceImpl implements QuestionService {
+@Service
+class QuestionServiceImpl implements QuestionService {
 
     @Override
     public String ask(String question) {
