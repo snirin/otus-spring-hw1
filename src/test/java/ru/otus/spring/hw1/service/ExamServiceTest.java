@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import ru.otus.spring.hw1.entity.Exam;
 import ru.otus.spring.hw1.entity.Student;
@@ -17,6 +18,7 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+@SpringBootTest
 public class ExamServiceTest {
     private static final String Q_1 = "q1";
     private static final String Q_2 = "q2";
