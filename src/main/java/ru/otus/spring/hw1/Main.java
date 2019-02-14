@@ -1,16 +1,15 @@
 package ru.otus.spring.hw1;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import ru.otus.spring.hw1.service.ClassroomService;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import ru.otus.spring.hw1.config.YamlProps;
 
-@ComponentScan
+@SpringBootApplication
+@EnableConfigurationProperties(YamlProps.class)
 public class Main {
 
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context =
-                new AnnotationConfigApplicationContext(Main.class);
-        ClassroomService classroomService = context.getBean(ClassroomService.class);
-        classroomService.execute();
+        SpringApplication.run(Main.class, args);
     }
 }
