@@ -16,7 +16,6 @@ class PrintServiceImpl implements PrintService {
     @Override
     public void printResult(Exam exam) {
         System.out.println(localizationService.getMessage("student", exam.getStudent().getName()));
-        System.out.println(localizationService.getMessage("result",
-                new Integer[] {exam.getScore(), exam.getTasks().size()}));
+        System.out.println(localizationService.getMessage("result", new Integer[] {exam.getScore(), exam.getTasks().size()}));
     }
 }

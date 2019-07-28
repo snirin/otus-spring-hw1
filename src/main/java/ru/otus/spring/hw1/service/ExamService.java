@@ -1,9 +1,9 @@
 package ru.otus.spring.hw1.service;
 
-import ru.otus.spring.hw1.entity.Exam;
-
 import java.util.Set;
 
+import ru.otus.spring.hw1.entity.Exam;
+
 public interface ExamService {
-    Exam takeExam(Set<String> questions);
+    Exam takeExam(String name, Set<String> questions);
 }

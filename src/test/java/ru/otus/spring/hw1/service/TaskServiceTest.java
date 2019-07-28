@@ -1,13 +1,13 @@
 package ru.otus.spring.hw1.service;
 
+import java.util.Map;
+
 import com.google.common.collect.ImmutableMap;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 
@@ -23,7 +23,7 @@ public class TaskServiceTest {
     private TaskService taskService;
 
     @Test
-    public void readTasks() throws Exception {
+    public void readTasks() {
         Map<String, String> map = taskService.readTasks("test.csv");
         assertEquals(QUESTIONS, map);
     }

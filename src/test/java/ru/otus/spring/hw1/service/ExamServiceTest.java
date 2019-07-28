@@ -1,5 +1,7 @@
 package ru.otus.spring.hw1.service;
 
+import java.util.Set;
+
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import org.junit.Before;
@@ -12,8 +14,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import ru.otus.spring.hw1.entity.Exam;
 import ru.otus.spring.hw1.entity.Student;
 import ru.otus.spring.hw1.entity.Task;
-
-import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
@@ -37,14 +37,14 @@ public class ExamServiceTest {
     private QuestionServiceImpl questionService;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         when(questionService.ask(any())).thenReturn(ANSWER);
         when(questionService.ask(ENTER_YOUR_NAME_LOCAL)).thenReturn(NAME);
     }
 
     @Test
-    public void takeExam() throws Exception {
-        Exam exam = examService.takeExam(QUESTIONS);
+    public void takeExam() {
+        Exam exam = examService.takeExam(NAME, QUESTIONS);
         Exam expectedExam = new Exam(new Student(NAME), ImmutableList.of(new Task(Q_1, ANSWER), new Task(Q_2, ANSWER)));
         assertEquals(expectedExam, exam);
     }

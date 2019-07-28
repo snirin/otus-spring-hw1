@@ -7,9 +7,9 @@ import ru.otus.spring.hw1.config.YamlProps;
 
 @SpringBootApplication
 @EnableConfigurationProperties(YamlProps.class)
-public class Main {
+public class ExamApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Main.class, args);
+        SpringApplication.run(ExamApplication.class, args);
     }
 }
