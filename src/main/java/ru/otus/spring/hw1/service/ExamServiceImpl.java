@@ -1,16 +1,15 @@
 package ru.otus.spring.hw1.service;
 
+import java.util.ArrayList;
+import java.util.Set;
+
 import org.springframework.stereotype.Service;
 import ru.otus.spring.hw1.entity.Exam;
 import ru.otus.spring.hw1.entity.Student;
 import ru.otus.spring.hw1.entity.Task;
 
-import java.util.ArrayList;
-import java.util.Set;
-
 @Service
 class ExamServiceImpl implements ExamService {
-    private static final String ENTER_YOUR_NAME = "enter.your.name";
     private static final String QUESTION = "question";
 
     private QuestionService questionService;
@@ -22,10 +21,7 @@ class ExamServiceImpl implements ExamService {
     }
 
     @Override
-    public Exam takeExam(Set<String> questions) {
-        String questionName = localizationService.getMessage(ENTER_YOUR_NAME);
-        String name = questionService.ask(questionName);
-
+    public Exam takeExam(String name, Set<String> questions) {
         Exam exam = new Exam(new Student(name), new ArrayList<>());
 
         int n = 0;
